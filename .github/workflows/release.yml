@@ -23,11 +23,12 @@ jobs:
         pip install bump2version tensorflow keras coremltools
 
     - name: Download artifact
-      uses: dawidd6/action-download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         workflow: ml_training.yml
         workflow_conclusion: success
+        repository: https://github.com/tmart234/OpenFlow
         name: lstm_model_keras_release
         path: ./model
 
