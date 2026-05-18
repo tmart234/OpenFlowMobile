@@ -18,9 +18,9 @@ OpenFlowMobile/
 
 This repo is mid-refactor. Track the work in branch [`claude/review-mobile-app-refactor-b0nIk`](../../tree/claude/review-mobile-app-refactor-b0nIk).
 
-- **iOS**: builds, but architecture and ML inference need rework. The ML model bundled at runtime is fed placeholder inputs — the forecast graph is currently not meaningful.
-- **Android**: scaffolded only. Three stub fragments with no networking, persistence, or ML. Needs a from-scratch build to reach iOS parity.
-- **ML pipeline**: the [upstream OpenFlow](https://github.com/tmart234/OpenFlow) repo is rewriting how models are published. Mobile will consume per-platform model artifacts (Core ML for iOS, TFLite/ONNX for Android) once upstream is ready.
+- **iOS**: builds. ML stack (`MLContract`, `ModelBundle`, `ModelManager`, `FeaturePipeline`) wired to upstream's published contract. The runtime feature pipeline that assembles encoder/decoder windows from live data is Phase 2 — until then the forecast UI shows "feature pipeline not implemented" rather than fake numbers.
+- **Android**: ML stack in place (`com.tmart234.openflowmobile.ml.*`) mirroring iOS. TFLite + kotlinx.serialization + OkHttp dependencies added. No real screens yet — Phase 4 builds the UI.
+- **ML pipeline**: [upstream OpenFlow](https://github.com/tmart234/OpenFlow) publishes a `model-YYYY.MM.DD` GitHub release with `lstm_model.mlpackage.zip`, `lstm_model.tflite`, and four companion JSONs. The first release lands when upstream's `dev` merges to `main`. The mobile `ModelManager` downloads + sha256-verifies the latest release, caches it, swaps in a bundled fallback when offline. Contract: [docs/INFERENCE.md](https://github.com/tmart234/OpenFlow/blob/dev/docs/INFERENCE.md).
 
 ## Building
 
