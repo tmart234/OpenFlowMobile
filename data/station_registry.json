@@ -1,0 +1,90 @@
+{
+  "encoder_window_end_offset_days": 3,
+  "generated_utc": "2026-05-18T18:01:23Z",
+  "schema_version": 1,
+  "sites": {
+    "DWR:ARKCANCO": {
+      "agency": "DWR",
+      "ghcnd_distance_km": 4.06,
+      "ghcnd_id": "USC00051294",
+      "huc8": "11020002",
+      "lat": 38.433624,
+      "lon": -105.257784,
+      "name": "ARKANSAS RIVER AT CANON CITY",
+      "notes": [],
+      "site_id": "ARKCANCO",
+      "snotel_triplets": []
+    },
+    "USGS:09070500": {
+      "agency": "USGS",
+      "ghcnd_distance_km": 15.18,
+      "ghcnd_id": "USC00057618",
+      "huc8": "14010001",
+      "lat": 39.6446111,
+      "lon": -107.0780139,
+      "name": "COLORADO RIVER NEAR DOTSERO, CO",
+      "notes": [],
+      "site_id": "09070500",
+      "snotel_triplets": [
+        "05J09:CO:SNOW",
+        "05J10:CO:SNOW",
+        "05J16:CO:SNOW",
+        "05J24:CO:SNOW",
+        "05K03:CO:SNOW",
+        "05K07:CO:SNOW",
+        "05K12:CO:SNOW",
+        "05K18:CO:SNOW",
+        "05K19:CO:SNOW",
+        "05K21:CO:SNOW",
+        "06J05:CO:SNOW",
+        "06J11:CO:SNOW",
+        "06J17:CO:SNOW",
+        "06K12:CO:SNOW",
+        "1014:CO:SNTL",
+        "1030:CO:SNTL",
+        "1186:CO:SNTL",
+        "1187:CO:SNTL",
+        "335:CO:SNTL",
+        "345:CO:SNTL",
+        "565:CO:SNTL",
+        "607:CO:SNTL",
+        "688:CO:SNTL",
+        "793:CO:SNTL",
+        "869:CO:SNTL",
+        "913:CO:SNTL",
+        "970:CO:SNTL"
+      ]
+    },
+    "USGS:09114500": {
+      "agency": "USGS",
+      "ghcnd_distance_km": 2.39,
+      "ghcnd_id": "USC00053662",
+      "huc8": "14020002",
+      "lat": 38.54193567,
+      "lon": -106.9497661,
+      "name": "GUNNISON RIVER NEAR GUNNISON, CO.",
+      "notes": [],
+      "site_id": "09114500",
+      "snotel_triplets": [
+        "07M08:CO:SNOW",
+        "1188:CO:SNTL",
+        "762:CO:SNTL"
+      ]
+    },
+    "USGS:09163500": {
+      "agency": "USGS",
+      "ghcnd_distance_km": 19.98,
+      "ghcnd_id": "USC00053307",
+      "huc8": "14010005",
+      "lat": 39.1327434,
+      "lon": -109.02707585,
+      "name": "COLORADO RIVER NEAR COLORADO-UTAH STATE LINE",
+      "notes": [],
+      "site_id": "09163500",
+      "snotel_triplets": [
+        "08K04:CO:SNOW",
+        "622:CO:SNTL"
+      ]
+    }
+  }
+}

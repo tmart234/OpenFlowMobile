@@ -60,3 +60,16 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# Python (scripts/ + cron tooling)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Upstream OpenFlow checkout used by CI scripts
+upstream-openflow/
+
+# Local SMAP / scratch caches
+.smap-cache/
+.script-output/

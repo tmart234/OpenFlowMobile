@@ -1,0 +1,6 @@
+# Minimal extras for OpenFlowMobile backend scripts.
+# build_registry.py uses only requests; fetch_smap.py additionally pulls in
+# upstream OpenFlow's full toolchain via upstream-openflow/requirements.txt
+# (installed separately in the smap-update workflow).
+requests>=2.31,<3
+pandas>=2.0,<3

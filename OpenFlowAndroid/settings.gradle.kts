@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "OpenFlow"
+rootProject.name = "OpenFlowMobile"
 include(":app")

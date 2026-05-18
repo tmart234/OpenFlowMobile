@@ -1,171 +1,99 @@
 //
 //  FlowGraphView.swift
-//  WW-app
+//  OpenFlowMobile
 //
-//  Created by Tyler Martin on 3/18/24.
+//  Renders the 14-day forecast for a river. Phase 1 wires the contract-correct
+//  ML stack (ModelManager + ModelBundle) but the runtime FeaturePipeline that
+//  assembles live input data lands in Phase 2 — so the forecast is intentionally
+//  unavailable until then. The previous version of this file fed the model
+//  placeholder inputs ([1,2,3,4,5]) and rendered the resulting garbage as a
+//  prediction; that has been removed.
 //
-// ML Prediction Graph used in RiverDetailView
 
-import Foundation
 import SwiftUI
-import CoreML
-import Charts
 
 struct FlowGraphView: View {
     let river: RiverData
-    @EnvironmentObject var sharedModelData: SharedModelData
-    @State private var flowData: [(date: Date, flow: Double)] = []
-    @State private var predictedFlowData: [(date: Date, flow: Double)] = []
-    
+    @EnvironmentObject var modelManager: ModelManager
+    @State private var forecast: [DailyForecast] = []
+    @State private var errorMessage: String?
+    @State private var isLoading = false
+
+    private let pipeline: FeaturePipeline = {
+        if let registry = try? StationRegistry.loadBundled() {
+            return RealFeaturePipeline(registry: registry)
+        }
+        return UnavailableFeaturePipeline()
+    }()
+
     var body: some View {
-        VStack {
-            if let model = sharedModelData.compiledModel {
-                RiverFlowGraphView(flowData: flowData, predictedFlowData: predictedFlowData)
-                    .onAppear {
-                        prepareInputDataAndPredict(with: model)
-                    }
-            } else {
-                Text("Model not loaded")
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Forecast")
+                .font(.headline)
+
+            switch modelManager.state {
+            case .ready:
+                forecastContent
+            case .downloading(let v):
+                Text("Downloading model \(v)…").foregroundColor(.secondary)
+            case .checkingForUpdate, .loadingFromCache, .idle:
+                Text("Loading model…").foregroundColor(.secondary)
+            case .notAvailable:
+                Text("Forecast model not yet published upstream.")
+                    .foregroundColor(.secondary)
+            case .error(let m):
+                Text(m).foregroundColor(.red)
+            }
+        }
+        .padding(.vertical)
+        .task(id: modelManager.bundle?.version) {
+            await refreshForecast()
+        }
+    }
+
+    @ViewBuilder
+    private var forecastContent: some View {
+        if isLoading {
+            ProgressView()
+        } else if let errorMessage = errorMessage {
+            Text(errorMessage)
+                .font(.footnote)
+                .foregroundColor(.secondary)
+        } else if forecast.isEmpty {
+            Text("No forecast available.")
+                .foregroundColor(.secondary)
+        } else {
+            ForEach(forecast, id: \.date) { day in
+                HStack {
+                    Text(day.date, style: .date).font(.footnote)
+                    Spacer()
+                    Text("\(Int(day.minFlowCFS))–\(Int(day.maxFlowCFS)) cfs")
+                        .font(.footnote.monospacedDigit())
+                }
             }
         }
     }
-    
-      private func prepareInputDataAndPredict(with model: MLModel) {
-          // Prepare the input data for prediction
-          guard let inputFeatures = prepareInputData() else {
-              print("Failed to prepare input data")
-              return
-          }
-          
-          // Make predictions using the loaded model
-          guard let output = try? model.prediction(from: inputFeatures) else {
-              print("Failed to make predictions")
-              return
-          }
-          
-          // Process the model output and update the predicted flow data
-          // Assuming the model output is a dictionary with "predictedFlow" key
-          guard let predictedFlow = output.featureValue(for: "predictedFlow") else {
-              print("Failed to get predicted flow data")
-              return
-          }
-          
-          // Convert MLMultiArray to [(date: Date, flow: Double)]
-          if let predictedFlowArray = predictedFlow.multiArrayValue?.doubleArrayFromMLMultiArray() {
-              let dateFormatter = DateFormatter()
-              dateFormatter.dateFormat = "yyyy-MM-dd"
-              let startDate = dateFormatter.date(from: "2024-03-18") ?? Date()
-              
-              let predictedFlowData = predictedFlowArray.enumerated().map { (index, flow) in
-                  let date = Calendar.current.date(byAdding: .day, value: index, to: startDate) ?? Date()
-                  return (date: date, flow: flow)
-              }
-              
-              DispatchQueue.main.async {
-                  self.predictedFlowData = predictedFlowData
-              }
-          } else {
-              print("Failed to convert predicted flow data to [(date: Date, flow: Double)]")
-          }
-      }
-      
-    private func prepareInputData() -> MLFeatureProvider? {
-        // Prepare the input data for the model based on the training script
-        
-        // Get the USGS station ID
-        let stationID = river.siteNumber
-        
-        // Get 14 days of future temperature predictions (max and min)
-        var futureTempData = [1,2,3,4,5]
-        
-        // Get 60 days of historical flow data (max and min)
-        //guard let historicalFlowData = getHistoricalFlowData(forDays: 60) else {
-        //    print("Failed to get historical flow data")
-        //    return nil
-        //}
-        let historicalFlowData: [[Double]] = []
-        
-        // Get the normalized date as a fraction
-        let normalizedDate = getNormalizedDate()
-        
-        // Create the MLMultiArray for future temperature data
-        guard let futureTempMultiArray = try? MLMultiArray(shape: [14, 2], dataType: .double) else {
-            print("Failed to create MLMultiArray for future temperature data")
-            return nil
-        }
-        
-        // Create the MLMultiArray for historical flow data
-        guard let historicalFlowMultiArray = try? MLMultiArray(shape: [60, 2], dataType: .double) else {
-            print("Failed to create MLMultiArray for historical flow data")
-            return nil
-        }
-        
-        // Set the values for future temperature data
 
-        // Set the values for historical flow data
-        for (rowIndex, flowData) in historicalFlowData.enumerated() {
-            for (colIndex, value) in flowData.enumerated() {
-                historicalFlowMultiArray[[rowIndex, colIndex] as [NSNumber]] = NSNumber(value: value)
-            }
-        }
-        
-        // Create the input features dictionary
-        let inputFeatures: [String: Any] = [
-            "future_temp_data": futureTempMultiArray,
-            "historical_flow_data": historicalFlowMultiArray,
-            "station_id": stationID,
-            "date_normalized": normalizedDate
-        ]
-                
-        // Create an MLDictionaryFeatureProvider with the input features
-        return try? MLDictionaryFeatureProvider(dictionary: inputFeatures)
-    }
-      
-
-      
-      private func getHistoricalFlowData(forDays days: Int) -> [[Double]]? {
-          // Implement the logic to fetch historical flow data (max and min) for the specified number of days
-          // Return the data as an array of [Double] arrays, where each inner array represents a day's flow data
-          // Example: [[maxFlow1, minFlow1], [maxFlow2, minFlow2], ...]
-          // Return nil if the data is not available
-          return nil // Placeholder, replace with your actual implementation
-      }
-      
-    private func getNormalizedDate() -> Double {
-        let currentDate = Date()
-        let normalizedDate = normalizeDate(currentDate)
-        return normalizedDate
-    }
-  }
-
-extension MLMultiArray {
-    func doubleArrayFromMLMultiArray() -> [Double]? {
-        guard let pointer = try? UnsafeBufferPointer<Double>(self) else {
-            return nil
-        }
-        return Array(pointer)
-    }
-}
-
-struct RiverFlowGraphView: View {
-    let flowData: [(date: Date, flow: Double)]
-    let predictedFlowData: [(date: Date, flow: Double)]
-    
-    var body: some View {
-        // Use a charting library like SwiftUICharts or create a custom graph view
-        // to display the flow data and predicted flow data
-        // For simplicity, we'll just display the data as text for now
-        VStack {
-            Text("Flow Data: \(flowData.description)")
-            Text("Predicted Flow Data: \(predictedFlowData.description)")
+    private func refreshForecast() async {
+        guard let bundle = modelManager.bundle else { return }
+        isLoading = true
+        errorMessage = nil
+        defer { isLoading = false }
+        do {
+            // RealFeaturePipeline resolves siteId -> SiteMetadata via the
+            // bundled station_registry.json. basinId is informational here;
+            // the pipeline reads HUC8 from the registry entry.
+            let window = try await pipeline.assembleWindow(
+                siteId: river.siteNumber,
+                basinId: "",
+                schema: bundle.manifest.schema,
+                referenceDate: Date())
+            let start = Calendar(identifier: .gregorian)
+                .date(byAdding: .day, value: 1, to: Date()) ?? Date()
+            forecast = try bundle.forecast(window, forecastStart: start)
+        } catch {
+            errorMessage = error.localizedDescription
+            forecast = []
         }
     }
-}
-
-private func normalizeDate(_ date: Date) -> Double {
-    let calendar = Calendar.current
-    let dayOfYear = Double(calendar.ordinality(of: .day, in: .year, for: date) ?? 1)
-    let isLeapYear = calendar.range(of: .day, in: .year, for: date)?.count == 366
-    let yearFraction = (dayOfYear - 1) / (isLeapYear ? 366.0 : 365.0)
-    return yearFraction
 }

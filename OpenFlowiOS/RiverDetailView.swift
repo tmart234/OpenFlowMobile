@@ -1,15 +1,12 @@
 //
 //  RiverDetailView.swift
-//  WW-app
+//  OpenFlowMobile
 //
 //  Created by Tyler Martin on 3/29/23.
 //
 
 import SwiftUI
 import Foundation
-import Amplify
-import CoreML
-import Zip
 
 
 struct RiverDetailView: View {
@@ -18,7 +15,7 @@ struct RiverDetailView: View {
     @EnvironmentObject var riverDataModel: RiverDataModel
     var riverCoordinates: [String: Coordinates] = [:]
 
-    @EnvironmentObject var sharedModelData: SharedModelData
+    @EnvironmentObject var modelManager: ModelManager
     @State private var reservoirData: [ReservoirInfo] = []
     @State private var selectedDate = Date()
     @State private var snowpackData: SnowpackData?
@@ -31,7 +28,6 @@ struct RiverDetailView: View {
     @State private var flowData: String = ""
     @State private var latitude: Double? = nil
     @State private var longitude: Double? = nil
-    @State private var mlModel: MLModel?
     @State private var isLoadingFlowData = false
     
     func fetchSnowpackData() {
@@ -139,13 +135,6 @@ struct RiverDetailView: View {
         .navigationTitle(river.stationName)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            if isMLRiver {
-                if sharedModelData.compiledModel != nil && sharedModelData.isModelLoaded {
-                    print("Model loaded successfully")
-                } else {
-                    print("Model not loaded")
-                }
-            }
             ReservoirManager.shared.fetchReservoirData(siteIDs: river.reservoirSiteIDs) { result in
                 switch result {
                 case .success(let reservoirData):
