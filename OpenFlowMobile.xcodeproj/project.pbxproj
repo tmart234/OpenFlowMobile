@@ -41,6 +41,10 @@
 		99D968722BA908AA00261E95 /* ReservoirManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D968712BA908AA00261E95 /* ReservoirManager.swift */; };
 		99D968742BA9116200261E95 /* CoordinatesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D968732BA9116200261E95 /* CoordinatesFetcher.swift */; };
 		99D968782BB88D9400261E95 /* RiverDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D968772BB88D9400261E95 /* RiverDataType.swift */; };
+		B100000000000000000000A2 /* MLContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000A1 /* MLContract.swift */; };
+		B100000000000000000000B2 /* ModelBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000B1 /* ModelBundle.swift */; };
+		B100000000000000000000C2 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000C1 /* ModelManager.swift */; };
+		B100000000000000000000D2 /* FeaturePipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000D1 /* FeaturePipeline.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,10 @@
 		99D968712BA908AA00261E95 /* ReservoirManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservoirManager.swift; sourceTree = "<group>"; };
 		99D968732BA9116200261E95 /* CoordinatesFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatesFetcher.swift; sourceTree = "<group>"; };
 		99D968772BB88D9400261E95 /* RiverDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiverDataType.swift; sourceTree = "<group>"; };
+		B100000000000000000000A1 /* MLContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLContract.swift; sourceTree = "<group>"; };
+		B100000000000000000000B1 /* ModelBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelBundle.swift; sourceTree = "<group>"; };
+		B100000000000000000000C1 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		B100000000000000000000D1 /* FeaturePipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturePipeline.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +143,10 @@
 				99CF9EB32BC5AF11008D16AE /* MapView.swift */,
 				997623BB2AEF63900004185E /* FavoriteView.swift */,
 				99B07C702B0B1FB600AF2687 /* Utils.swift */,
+				B100000000000000000000A1 /* MLContract.swift */,
+				B100000000000000000000B1 /* ModelBundle.swift */,
+				B100000000000000000000C1 /* ModelManager.swift */,
+				B100000000000000000000D1 /* FeaturePipeline.swift */,
 			);
 			path = OpenFlowiOS;
 			sourceTree = "<group>";
@@ -260,6 +272,10 @@
 				99CF9EB42BC5AF11008D16AE /* MapView.swift in Sources */,
 				99CFC17329D52DDD0069F04E /* OpenFlowMobile.xcdatamodeld in Sources */,
 				99D968722BA908AA00261E95 /* ReservoirManager.swift in Sources */,
+				B100000000000000000000A2 /* MLContract.swift in Sources */,
+				B100000000000000000000B2 /* ModelBundle.swift in Sources */,
+				B100000000000000000000C2 /* ModelManager.swift in Sources */,
+				B100000000000000000000D2 /* FeaturePipeline.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
