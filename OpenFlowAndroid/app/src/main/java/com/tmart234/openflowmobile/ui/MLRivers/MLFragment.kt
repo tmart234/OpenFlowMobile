@@ -1,4 +1,4 @@
-package com.example.openflow.ui.dashboard
+package com.tmart234.openflowmobile.ui.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.openflow.databinding.FragmentDashboardBinding
+import com.tmart234.openflowmobile.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
 

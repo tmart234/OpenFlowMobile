@@ -1,4 +1,4 @@
-package com.example.openflow
+package com.tmart234.openflowmobile
 
 import org.junit.Test
 

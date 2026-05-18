@@ -1,4 +1,4 @@
-package com.example.openflow
+package com.tmart234.openflowmobile
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.openflow.databinding.ActivityMainBinding
+import com.tmart234.openflowmobile.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

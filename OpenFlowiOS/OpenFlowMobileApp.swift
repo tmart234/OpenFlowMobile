@@ -1,6 +1,6 @@
 //
-//  WW_appApp.swift
-//  WW-app
+//  OpenFlowMobileApp.swift
+//  OpenFlowMobile
 //
 //  Created by Tyler Martin on 3/29/23.
 //
@@ -10,7 +10,7 @@ import Zip
 import CoreML
 
 @main
-struct WW_appApp: App {
+struct OpenFlowMobileApp: App {
     @StateObject private var sharedModelData = SharedModelData()
     @State private var isModelLoaded = false
     @StateObject private var riverDataModel = RiverDataModel()

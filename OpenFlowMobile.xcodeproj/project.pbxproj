@@ -21,9 +21,9 @@
 		99C62BA929D79C3D00A37181 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 99C62BA829D79C3D00A37181 /* SwiftCSV */; };
 		99C62BAC29D7B21500A37181 /* CSV in Frameworks */ = {isa = PBXBuildFile; productRef = 99C62BAB29D7B21500A37181 /* CSV */; };
 		99CF9EB42BC5AF11008D16AE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CF9EB32BC5AF11008D16AE /* MapView.swift */; };
-		99CFC16E29D52DDD0069F04E /* WW_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CFC16D29D52DDD0069F04E /* WW_appApp.swift */; };
+		99CFC16E29D52DDD0069F04E /* OpenFlowMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CFC16D29D52DDD0069F04E /* OpenFlowMobileApp.swift */; };
 		99CFC17029D52DDD0069F04E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CFC16F29D52DDD0069F04E /* Persistence.swift */; };
-		99CFC17329D52DDD0069F04E /* WW_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99CFC17129D52DDD0069F04E /* WW_app.xcdatamodeld */; };
+		99CFC17329D52DDD0069F04E /* OpenFlowMobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99CFC17129D52DDD0069F04E /* OpenFlowMobile.xcdatamodeld */; };
 		99CFC17729D52DDD0069F04E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99CFC17629D52DDD0069F04E /* Assets.xcassets */; };
 		99CFC17B29D52DDD0069F04E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99CFC17A29D52DDD0069F04E /* Preview Assets.xcassets */; };
 		99CFC18229D52EE80069F04E /* River.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CFC18129D52EE80069F04E /* River.swift */; };
@@ -49,12 +49,12 @@
 		99B07C6E2B0B170000AF2687 /* MLListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLListView.swift; sourceTree = "<group>"; };
 		99B07C702B0B1FB600AF2687 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		99CF9EB32BC5AF11008D16AE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		99CFC16A29D52DDD0069F04E /* WW-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WW-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		99CFC16D29D52DDD0069F04E /* WW_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WW_appApp.swift; sourceTree = "<group>"; };
+		99CFC16A29D52DDD0069F04E /* OpenFlowMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenFlowMobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		99CFC16D29D52DDD0069F04E /* OpenFlowMobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFlowMobileApp.swift; sourceTree = "<group>"; };
 		99CFC16F29D52DDD0069F04E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		99CFC17229D52DDD0069F04E /* WW_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WW_app.xcdatamodel; sourceTree = "<group>"; };
+		99CFC17229D52DDD0069F04E /* OpenFlowMobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OpenFlowMobile.xcdatamodel; sourceTree = "<group>"; };
 		99CFC17629D52DDD0069F04E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		99CFC17829D52DDD0069F04E /* WW_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WW_app.entitlements; sourceTree = "<group>"; };
+		99CFC17829D52DDD0069F04E /* OpenFlowMobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenFlowMobile.entitlements; sourceTree = "<group>"; };
 		99CFC17A29D52DDD0069F04E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		99CFC18129D52EE80069F04E /* River.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = River.swift; sourceTree = "<group>"; };
 		99CFC18729D531780069F04E /* RiverListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiverListView.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		99CFC16129D52DDD0069F04E = {
 			isa = PBXGroup;
 			children = (
-				99CFC16C29D52DDD0069F04E /* WW-app */,
+				99CFC16C29D52DDD0069F04E /* OpenFlowMobile */,
 				99CFC16B29D52DDD0069F04E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,21 +104,21 @@
 		99CFC16B29D52DDD0069F04E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				99CFC16A29D52DDD0069F04E /* WW-app.app */,
+				99CFC16A29D52DDD0069F04E /* OpenFlowMobile.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		99CFC16C29D52DDD0069F04E /* WW-app */ = {
+		99CFC16C29D52DDD0069F04E /* OpenFlowMobile */ = {
 			isa = PBXGroup;
 			children = (
 				99B07C6E2B0B170000AF2687 /* MLListView.swift */,
 				99CFC18B29D539EA0069F04E /* SnowpackData.swift */,
-				99CFC16D29D52DDD0069F04E /* WW_appApp.swift */,
+				99CFC16D29D52DDD0069F04E /* OpenFlowMobileApp.swift */,
 				99CFC16F29D52DDD0069F04E /* Persistence.swift */,
 				99CFC17629D52DDD0069F04E /* Assets.xcassets */,
-				99CFC17829D52DDD0069F04E /* WW_app.entitlements */,
-				99CFC17129D52DDD0069F04E /* WW_app.xcdatamodeld */,
+				99CFC17829D52DDD0069F04E /* OpenFlowMobile.entitlements */,
+				99CFC17129D52DDD0069F04E /* OpenFlowMobile.xcdatamodeld */,
 				99CFC17929D52DDD0069F04E /* Preview Content */,
 				99D968712BA908AA00261E95 /* ReservoirManager.swift */,
 				99D968732BA9116200261E95 /* CoordinatesFetcher.swift */,
@@ -136,7 +136,7 @@
 				997623BB2AEF63900004185E /* FavoriteView.swift */,
 				99B07C702B0B1FB600AF2687 /* Utils.swift */,
 			);
-			path = "WW-app";
+			path = OpenFlowiOS;
 			sourceTree = "<group>";
 		};
 		99CFC17929D52DDD0069F04E /* Preview Content */ = {
@@ -150,9 +150,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		99CFC16929D52DDD0069F04E /* WW-app */ = {
+		99CFC16929D52DDD0069F04E /* OpenFlowMobile */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99CFC17E29D52DDD0069F04E /* Build configuration list for PBXNativeTarget "WW-app" */;
+			buildConfigurationList = 99CFC17E29D52DDD0069F04E /* Build configuration list for PBXNativeTarget "OpenFlowMobile" */;
 			buildPhases = (
 				99CFC16629D52DDD0069F04E /* Sources */,
 				99CFC16729D52DDD0069F04E /* Frameworks */,
@@ -162,7 +162,7 @@
 			);
 			dependencies = (
 			);
-			name = "WW-app";
+			name = "OpenFlowMobile";
 			packageProductDependencies = (
 				99CFC19029D53ADB0069F04E /* Alamofire */,
 				99CFC19729D56F800069F04E /* SwiftyJSON */,
@@ -177,8 +177,8 @@
 				9907234029D936F400C18065 /* Amplify */,
 				99B07C732B0B254200AF2687 /* Zip */,
 			);
-			productName = "WW-app";
-			productReference = 99CFC16A29D52DDD0069F04E /* WW-app.app */;
+			productName = "OpenFlowMobile";
+			productReference = 99CFC16A29D52DDD0069F04E /* OpenFlowMobile.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -196,7 +196,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 99CFC16529D52DDD0069F04E /* Build configuration list for PBXProject "WW-app" */;
+			buildConfigurationList = 99CFC16529D52DDD0069F04E /* Build configuration list for PBXProject "OpenFlowMobile" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -218,7 +218,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				99CFC16929D52DDD0069F04E /* WW-app */,
+				99CFC16929D52DDD0069F04E /* OpenFlowMobile */,
 			);
 		};
 /* End PBXProject section */
@@ -240,7 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99CFC16E29D52DDD0069F04E /* WW_appApp.swift in Sources */,
+				99CFC16E29D52DDD0069F04E /* OpenFlowMobileApp.swift in Sources */,
 				99CFC18829D531780069F04E /* RiverListView.swift in Sources */,
 				997623BC2AEF63900004185E /* FavoriteView.swift in Sources */,
 				99CFC19329D53DF80069F04E /* NRCSResponse.swift in Sources */,
@@ -258,7 +258,7 @@
 				997623B82AEF21960004185E /* AuthButtons.swift in Sources */,
 				99D968742BA9116200261E95 /* CoordinatesFetcher.swift in Sources */,
 				99CF9EB42BC5AF11008D16AE /* MapView.swift in Sources */,
-				99CFC17329D52DDD0069F04E /* WW_app.xcdatamodeld in Sources */,
+				99CFC17329D52DDD0069F04E /* OpenFlowMobile.xcdatamodeld in Sources */,
 				99D968722BA908AA00261E95 /* ReservoirManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,10 +380,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "WW-app/WW_app.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "OpenFlowiOS/OpenFlowMobile.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WW-app/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"OpenFlowiOS/Preview Content\"";
 				DEVELOPMENT_TEAM = KW68H824S9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -403,7 +403,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "tmart234.WW-app";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tmart234.openflowmobile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -420,10 +420,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "WW-app/WW_app.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "OpenFlowiOS/OpenFlowMobile.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WW-app/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"OpenFlowiOS/Preview Content\"";
 				DEVELOPMENT_TEAM = KVKVM7VNTW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -443,7 +443,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "tmart234.WW-app";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tmart234.openflowmobile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -458,7 +458,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		99CFC16529D52DDD0069F04E /* Build configuration list for PBXProject "WW-app" */ = {
+		99CFC16529D52DDD0069F04E /* Build configuration list for PBXProject "OpenFlowMobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				99CFC17C29D52DDD0069F04E /* Debug */,
@@ -467,7 +467,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99CFC17E29D52DDD0069F04E /* Build configuration list for PBXNativeTarget "WW-app" */ = {
+		99CFC17E29D52DDD0069F04E /* Build configuration list for PBXNativeTarget "OpenFlowMobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				99CFC17F29D52DDD0069F04E /* Debug */,
@@ -601,13 +601,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		99CFC17129D52DDD0069F04E /* WW_app.xcdatamodeld */ = {
+		99CFC17129D52DDD0069F04E /* OpenFlowMobile.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				99CFC17229D52DDD0069F04E /* WW_app.xcdatamodel */,
+				99CFC17229D52DDD0069F04E /* OpenFlowMobile.xcdatamodel */,
 			);
-			currentVersion = 99CFC17229D52DDD0069F04E /* WW_app.xcdatamodel */;
-			path = WW_app.xcdatamodeld;
+			currentVersion = 99CFC17229D52DDD0069F04E /* OpenFlowMobile.xcdatamodel */;
+			path = OpenFlowMobile.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

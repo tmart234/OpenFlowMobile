@@ -1,5 +1,5 @@
 // FavoriteView.swift
-// WW-app
+// OpenFlowMobile
 //
 // Created by Tyler Martin on 10/29/23.
 //

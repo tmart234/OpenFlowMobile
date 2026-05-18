@@ -1,0 +1,52 @@
+name: iOS CI
+
+on:
+  push:
+    branches: [dev, main]
+    paths:
+      - 'OpenFlowiOS/**'
+      - 'OpenFlowMobile.xcodeproj/**'
+      - '.github/workflows/ios-ci.yml'
+  pull_request:
+    paths:
+      - 'OpenFlowiOS/**'
+      - 'OpenFlowMobile.xcodeproj/**'
+      - '.github/workflows/ios-ci.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build (iOS Simulator)
+    runs-on: macos-14
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app
+
+      - name: Show build environment
+        run: |
+          xcodebuild -version
+          swift --version
+
+      - name: Resolve Swift packages
+        run: |
+          xcodebuild \
+            -project OpenFlowMobile.xcodeproj \
+            -scheme OpenFlowMobile \
+            -resolvePackageDependencies
+
+      - name: Build for iOS Simulator
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project OpenFlowMobile.xcodeproj \
+            -scheme OpenFlowMobile \
+            -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            build

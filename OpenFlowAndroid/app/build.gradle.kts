@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.openflow"
+    namespace = "com.tmart234.openflowmobile"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.openflow"
+        applicationId = "com.tmart234.openflowmobile"
         minSdk = 28
         targetSdk = 34
         versionCode = 1

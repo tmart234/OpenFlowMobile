@@ -1,6 +1,6 @@
 //
 //  ProfileView.swift
-//  WW-app
+//  OpenFlowMobile
 //
 //  Created by Tyler Martin on 11/11/23.
 //

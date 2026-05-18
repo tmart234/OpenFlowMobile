@@ -1,6 +1,6 @@
 //
 //  Persistence.swift
-//  WW-app
+//  OpenFlowMobile
 //
 //  Created by Tyler Martin on 3/29/23.
 //
@@ -34,7 +34,7 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "WW_app")
+        container = NSPersistentContainer(name: "OpenFlowMobile")
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }

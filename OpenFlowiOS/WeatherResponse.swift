@@ -1,6 +1,6 @@
 //
 //  WeatherResponse.swift
-//  WW-app
+//  OpenFlowMobile
 //
 //  Created by Tyler Martin on 3/30/23.
 //

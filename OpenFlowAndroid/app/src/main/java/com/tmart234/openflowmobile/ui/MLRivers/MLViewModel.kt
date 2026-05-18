@@ -1,4 +1,4 @@
-package com.example.openflow.ui.dashboard
+package com.tmart234.openflowmobile.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

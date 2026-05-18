@@ -1,4 +1,4 @@
-package com.example.openflow.ui.notifications
+package com.tmart234.openflowmobile.ui.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

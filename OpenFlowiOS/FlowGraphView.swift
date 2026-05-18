@@ -1,6 +1,6 @@
 //
 //  FlowGraphView.swift
-//  WW-app
+//  OpenFlowMobile
 //
 //  Created by Tyler Martin on 3/18/24.
 //

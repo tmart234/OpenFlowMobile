@@ -1,4 +1,4 @@
-package com.example.openflow.ui.notifications
+package com.tmart234.openflowmobile.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.openflow.databinding.FragmentNotificationsBinding
+import com.tmart234.openflowmobile.databinding.FragmentNotificationsBinding
 
 class NotificationsFragment : Fragment() {
 
