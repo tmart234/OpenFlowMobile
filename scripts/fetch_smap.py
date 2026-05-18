@@ -108,32 +108,13 @@ def main() -> int:
             continue
 
         print(f"fetching SMAP for huc8={huc8} ({start}..{end})", file=sys.stderr)
-        try:
-            df = nasa_moisture.main(lat, lon, start, end)
-        except Exception as e:
-            print(f"  ! upstream nasa_moisture failed for {huc8}: {e}", file=sys.stderr)
-            df = pd.DataFrame(columns=["Date", "soil_moisture"])
+        payload = build_payload(huc8, lat, lon, start, end, nasa_moisture.main)
 
-        series = _series_from_df(df, start, end)
-        observed = sum(1 for r in series if r["observed"])
-
-        payload = {
-            "schema_version": 1,
-            "huc8": huc8,
-            "lat": lat,
-            "lon": lon,
-            "start_date": start.isoformat(),
-            "end_date": end.isoformat(),
-            "generated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "observed_days": observed,
-            "total_days": len(series),
-            "series": series,
-        }
         (OUTPUT_DIR / f"{huc8}.json").write_text(json.dumps(payload, indent=2) + "\n")
-        print(f"  wrote {huc8}.json ({observed}/{len(series)} days observed)", file=sys.stderr)
-        manifest_entries.append({
-            "huc8": huc8, "observed_days": observed, "total_days": len(series),
-        })
+        observed = payload["observed_days"]
+        total = payload["total_days"]
+        print(f"  wrote {huc8}.json ({observed}/{total} days observed)", file=sys.stderr)
+        manifest_entries.append({"huc8": huc8, "observed_days": observed, "total_days": total})
 
     manifest = {
         "schema_version": 1,
@@ -145,6 +126,35 @@ def main() -> int:
     (OUTPUT_DIR / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print(f"wrote manifest.json with {len(manifest_entries)} basins", file=sys.stderr)
     return 0
+
+
+def build_payload(huc8: str, lat: float, lon: float, start: date, end: date, fetch_fn) -> dict:
+    """
+    Pure-logic core extracted from main() so it's testable without an
+    upstream OpenFlow checkout. `fetch_fn` matches the signature of
+    nasa_moisture.main(lat, lon, start, end) -> pd.DataFrame.
+    """
+    try:
+        df = fetch_fn(lat, lon, start, end)
+    except Exception as e:
+        print(f"  ! upstream fetch failed for {huc8}: {e}", file=sys.stderr)
+        df = pd.DataFrame(columns=["Date", "soil_moisture"])
+
+    series = _series_from_df(df, start, end)
+    observed = sum(1 for r in series if r["observed"])
+
+    return {
+        "schema_version": 1,
+        "huc8": huc8,
+        "lat": lat,
+        "lon": lon,
+        "start_date": start.isoformat(),
+        "end_date": end.isoformat(),
+        "generated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "observed_days": observed,
+        "total_days": len(series),
+        "series": series,
+    }
 
 
 if __name__ == "__main__":

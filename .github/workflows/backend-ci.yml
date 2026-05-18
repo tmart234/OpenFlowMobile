@@ -1,0 +1,54 @@
+name: Backend CI
+
+# Validates scripts/build_registry.py and scripts/fetch_smap.py via pytest.
+# All HTTP is mocked - no calls to USGS/NCEI/AWDB/NASA from CI.
+
+on:
+  push:
+    branches: [main, dev]
+    paths:
+      - 'scripts/**'
+      - 'data/**'
+      - '.github/workflows/backend-ci.yml'
+  pull_request:
+    paths:
+      - 'scripts/**'
+      - 'data/**'
+      - '.github/workflows/backend-ci.yml'
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: |
+            scripts/requirements.txt
+            scripts/requirements-dev.txt
+
+      - name: Install
+        run: |
+          pip install -r scripts/requirements.txt
+          pip install -r scripts/requirements-dev.txt
+
+      - name: pytest
+        run: python -m pytest scripts/tests/ -v
+
+      - name: Smoke-check registry JSON is well-formed and complete
+        run: |
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          reg = json.loads(Path("data/station_registry.json").read_text())
+          assert reg["schema_version"] == 1, reg.get("schema_version")
+          assert reg["sites"], "registry has no sites"
+          for site_id, entry in reg["sites"].items():
+              for f in ("agency", "site_id", "lat", "lon"):
+                  assert entry.get(f) is not None, f"{site_id} missing {f}"
+          print(f"OK: {len(reg['sites'])} sites in registry")
+          PY
