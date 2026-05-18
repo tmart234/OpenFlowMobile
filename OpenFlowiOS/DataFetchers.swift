@@ -84,7 +84,12 @@ enum DataFetchers {
         ]
         let data = try await get(comps.url!, accept: "text/plain")
         let text = String(data: data, encoding: .utf8) ?? ""
+        return parseUsgsRdb(text)
+    }
 
+    /// Pure parser for USGS NWIS IV RDB text. Exposed for tests; called from
+    /// usgsFlow after the HTTP GET.
+    static func parseUsgsRdb(_ text: String) -> (min: DailySeries, max: DailySeries) {
         var mins: [Date: Double] = [:]
         var maxs: [Date: Double] = [:]
         let formatter = DateFormatter()
@@ -127,6 +132,10 @@ enum DataFetchers {
             URLQueryItem(name: "pageSize", value: "50000"),
         ]
         let data = try await get(comps.url!)
+        return try parseDwrJson(data)
+    }
+
+    static func parseDwrJson(_ data: Data) throws -> (min: DailySeries, max: DailySeries) {
         struct Resp: Decodable { struct Row: Decodable { let measDate: String?; let value: Double? }
             let ResultList: [Row] }
         let resp = try JSONDecoder().decode(Resp.self, from: data)
@@ -160,6 +169,10 @@ enum DataFetchers {
             URLQueryItem(name: "units", value: "standard"),  // F + inches per NCEI's "standard"
         ]
         let data = try await get(comps.url!)
+        return try parseGhcndJson(data)
+    }
+
+    static func parseGhcndJson(_ data: Data) throws -> (tmin: DailySeries, tmax: DailySeries, precip: DailySeries) {
         struct Row: Decodable {
             let DATE: String
             let TMIN: String?
@@ -322,6 +335,11 @@ enum DataFetchers {
             URLQueryItem(name: "timezone", value: "America/Denver"),
         ]
         let data = try await get(comps.url!)
+        return try parseOpenMeteoJson(data)
+    }
+
+    static func parseOpenMeteoJson(_ data: Data) throws
+        -> (tmin: DailySeries, tmax: DailySeries, precip: DailySeries) {
         struct Resp: Decodable {
             struct Daily: Decodable {
                 let time: [String]

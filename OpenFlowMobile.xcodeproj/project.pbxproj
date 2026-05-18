@@ -50,7 +50,20 @@
 		B200000000000000000000C2 /* WindowAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C1 /* WindowAssembler.swift */; };
 		B200000000000000000000D2 /* RealFeaturePipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000D1 /* RealFeaturePipeline.swift */; };
 		B200000000000000000000E2 /* station_registry.json in Resources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000E1 /* station_registry.json */; };
+		B300000000000000000000A2 /* MLContractScalingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B300000000000000000000A1 /* MLContractScalingTests.swift */; };
+		B300000000000000000000B2 /* DataFetcherParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B300000000000000000000B1 /* DataFetcherParsingTests.swift */; };
+		B300000000000000000000C2 /* WindowAssemblerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B300000000000000000000C1 /* WindowAssemblerTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B30000000000000000000005 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99CFC16229D52DDD0069F04E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99CFC16929D52DDD0069F04E;
+			remoteInfo = OpenFlowMobile;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		997623B72AEF21960004185E /* AuthButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButtons.swift; sourceTree = "<group>"; };
@@ -86,6 +99,10 @@
 		B200000000000000000000C1 /* WindowAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAssembler.swift; sourceTree = "<group>"; };
 		B200000000000000000000D1 /* RealFeaturePipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealFeaturePipeline.swift; sourceTree = "<group>"; };
 		B200000000000000000000E1 /* station_registry.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = station_registry.json; path = ../data/station_registry.json; sourceTree = "<group>"; };
+		B300000000000000000000A1 /* MLContractScalingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLContractScalingTests.swift; sourceTree = "<group>"; };
+		B300000000000000000000B1 /* DataFetcherParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherParsingTests.swift; sourceTree = "<group>"; };
+		B300000000000000000000C1 /* WindowAssemblerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAssemblerTests.swift; sourceTree = "<group>"; };
+		B30000000000000000000010 /* OpenFlowiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenFlowiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +125,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B30000000000000000000003 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -115,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				99CFC16C29D52DDD0069F04E /* OpenFlowMobile */,
+				B30000000000000000000011 /* OpenFlowiOSTests */,
 				99CFC16B29D52DDD0069F04E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -123,8 +148,19 @@
 			isa = PBXGroup;
 			children = (
 				99CFC16A29D52DDD0069F04E /* OpenFlowMobile.app */,
+				B30000000000000000000010 /* OpenFlowiOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B30000000000000000000011 /* OpenFlowiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				B300000000000000000000A1 /* MLContractScalingTests.swift */,
+				B300000000000000000000B1 /* DataFetcherParsingTests.swift */,
+				B300000000000000000000C1 /* WindowAssemblerTests.swift */,
+			);
+			path = OpenFlowiOSTests;
 			sourceTree = "<group>";
 		};
 		99CFC16C29D52DDD0069F04E /* OpenFlowMobile */ = {
@@ -208,6 +244,24 @@
 			productReference = 99CFC16A29D52DDD0069F04E /* OpenFlowMobile.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B30000000000000000000001 /* OpenFlowiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B30000000000000000000007 /* Build configuration list for PBXNativeTarget "OpenFlowiOSTests" */;
+			buildPhases = (
+				B30000000000000000000002 /* Sources */,
+				B30000000000000000000003 /* Frameworks */,
+				B30000000000000000000004 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B30000000000000000000006 /* PBXTargetDependency */,
+			);
+			name = OpenFlowiOSTests;
+			productName = OpenFlowiOSTests;
+			productReference = B30000000000000000000010 /* OpenFlowiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -220,6 +274,10 @@
 				TargetAttributes = {
 					99CFC16929D52DDD0069F04E = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					B30000000000000000000001 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 99CFC16929D52DDD0069F04E;
 					};
 				};
 			};
@@ -246,6 +304,7 @@
 			projectRoot = "";
 			targets = (
 				99CFC16929D52DDD0069F04E /* OpenFlowMobile */,
+				B30000000000000000000001 /* OpenFlowiOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,6 +317,13 @@
 				99CFC17B29D52DDD0069F04E /* Preview Assets.xcassets in Resources */,
 				99CFC17729D52DDD0069F04E /* Assets.xcassets in Resources */,
 				B200000000000000000000E2 /* station_registry.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B30000000000000000000004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +365,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B30000000000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B300000000000000000000A2 /* MLContractScalingTests.swift in Sources */,
+				B300000000000000000000B2 /* DataFetcherParsingTests.swift in Sources */,
+				B300000000000000000000C2 /* WindowAssemblerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B30000000000000000000006 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99CFC16929D52DDD0069F04E /* OpenFlowMobile */;
+			targetProxy = B30000000000000000000005 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		99CFC17C29D52DDD0069F04E /* Debug */ = {
@@ -491,6 +575,44 @@
 			};
 			name = Release;
 		};
+		B30000000000000000000008 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KW68H824S9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tmart234.OpenFlowMobileTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenFlowMobile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OpenFlowMobile";
+			};
+			name = Debug;
+		};
+		B30000000000000000000009 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KW68H824S9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tmart234.OpenFlowMobileTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenFlowMobile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OpenFlowMobile";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -508,6 +630,15 @@
 			buildConfigurations = (
 				99CFC17F29D52DDD0069F04E /* Debug */,
 				99CFC18029D52DDD0069F04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B30000000000000000000007 /* Build configuration list for PBXNativeTarget "OpenFlowiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B30000000000000000000008 /* Debug */,
+				B30000000000000000000009 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

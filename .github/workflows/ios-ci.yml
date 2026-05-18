@@ -5,18 +5,22 @@ on:
     branches: [dev, main]
     paths:
       - 'OpenFlowiOS/**'
+      - 'OpenFlowiOSTests/**'
       - 'OpenFlowMobile.xcodeproj/**'
+      - 'data/station_registry.json'
       - '.github/workflows/ios-ci.yml'
   pull_request:
     paths:
       - 'OpenFlowiOS/**'
+      - 'OpenFlowiOSTests/**'
       - 'OpenFlowMobile.xcodeproj/**'
+      - 'data/station_registry.json'
       - '.github/workflows/ios-ci.yml'
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build (iOS Simulator)
+  test:
+    name: Build + Test (iOS Simulator)
     runs-on: macos-14
     timeout-minutes: 30
     steps:
@@ -37,16 +41,19 @@ jobs:
             -scheme OpenFlowMobile \
             -resolvePackageDependencies
 
-      - name: Build for iOS Simulator
+      - name: Test on iOS Simulator
+        # `test` builds the app + the OpenFlowiOSTests bundle and runs the
+        # latter's XCTest cases. A simulator destination is required (unit
+        # tests can't run against a `generic` device).
         run: |
           set -o pipefail
           xcodebuild \
             -project OpenFlowMobile.xcodeproj \
             -scheme OpenFlowMobile \
             -configuration Debug \
-            -destination 'generic/platform=iOS Simulator' \
+            -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
             -derivedDataPath build \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
-            build
+            test
