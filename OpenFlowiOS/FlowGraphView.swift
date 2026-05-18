@@ -19,7 +19,12 @@ struct FlowGraphView: View {
     @State private var errorMessage: String?
     @State private var isLoading = false
 
-    private let pipeline: FeaturePipeline = UnavailableFeaturePipeline()
+    private let pipeline: FeaturePipeline = {
+        if let registry = try? StationRegistry.loadBundled() {
+            return RealFeaturePipeline(registry: registry)
+        }
+        return UnavailableFeaturePipeline()
+    }()
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -75,9 +80,9 @@ struct FlowGraphView: View {
         errorMessage = nil
         defer { isLoading = false }
         do {
-            // basinId is unknown to the app today — the Phase-2 station registry
-            // will resolve site -> HUC8. For now pass empty string, which the
-            // model treats as the unseen-basin embedding (index 0).
+            // RealFeaturePipeline resolves siteId -> SiteMetadata via the
+            // bundled station_registry.json. basinId is informational here;
+            // the pipeline reads HUC8 from the registry entry.
             let window = try await pipeline.assembleWindow(
                 siteId: river.siteNumber,
                 basinId: "",

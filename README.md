@@ -20,8 +20,8 @@ OpenFlowMobile/
 
 This repo is mid-refactor. Track the work in branch [`claude/review-mobile-app-refactor-b0nIk`](../../tree/claude/review-mobile-app-refactor-b0nIk).
 
-- **iOS**: builds. ML stack (`MLContract`, `ModelBundle`, `ModelManager`, `FeaturePipeline`) wired to upstream's published contract. The runtime feature pipeline that assembles encoder/decoder windows from live data is Phase 2 — until then the forecast UI shows "feature pipeline not implemented" rather than fake numbers.
-- **Android**: ML stack in place (`com.tmart234.openflowmobile.ml.*`) mirroring iOS. TFLite + kotlinx.serialization + OkHttp dependencies added. No real screens yet — Phase 4 builds the UI.
+- **iOS**: ML stack + feature pipeline are both in place. `StationRegistry` loads the bundled `data/station_registry.json`. `DataFetchers` pulls USGS/CODWR flow, NCEI GHCND temps+precip, NRCS SNOTEL SWE, USDM drought, Open-Meteo 14-day forecast directly from public APIs, plus precomputed NASA SMAP from this repo's `smap-data` branch. `WindowAssembler` aligns everything onto the 60-day encoder + 14-day decoder grid (units and gap-fill match upstream's training pipeline). End-to-end forecast is gated only on the first upstream `model-YYYY.MM.DD` release.
+- **Android**: ML stack in place (`com.tmart234.openflowmobile.ml.*`) mirroring iOS. Pipeline + UI come together in Phase 4 (Compose rewrite).
 - **ML pipeline**: [upstream OpenFlow](https://github.com/tmart234/OpenFlow) publishes a `model-YYYY.MM.DD` GitHub release with `lstm_model.mlpackage.zip`, `lstm_model.tflite`, and four companion JSONs. The first release lands when upstream's `dev` merges to `main`. The mobile `ModelManager` downloads + sha256-verifies the latest release, caches it, swaps in a bundled fallback when offline. Contract: [docs/INFERENCE.md](https://github.com/tmart234/OpenFlow/blob/dev/docs/INFERENCE.md).
 
 ## Building

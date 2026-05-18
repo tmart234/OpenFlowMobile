@@ -45,6 +45,11 @@
 		B100000000000000000000B2 /* ModelBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000B1 /* ModelBundle.swift */; };
 		B100000000000000000000C2 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000C1 /* ModelManager.swift */; };
 		B100000000000000000000D2 /* FeaturePipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000D1 /* FeaturePipeline.swift */; };
+		B200000000000000000000A2 /* StationRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000A1 /* StationRegistry.swift */; };
+		B200000000000000000000B2 /* DataFetchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000B1 /* DataFetchers.swift */; };
+		B200000000000000000000C2 /* WindowAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C1 /* WindowAssembler.swift */; };
+		B200000000000000000000D2 /* RealFeaturePipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000D1 /* RealFeaturePipeline.swift */; };
+		B200000000000000000000E2 /* station_registry.json in Resources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000E1 /* station_registry.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +81,11 @@
 		B100000000000000000000B1 /* ModelBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelBundle.swift; sourceTree = "<group>"; };
 		B100000000000000000000C1 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		B100000000000000000000D1 /* FeaturePipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturePipeline.swift; sourceTree = "<group>"; };
+		B200000000000000000000A1 /* StationRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationRegistry.swift; sourceTree = "<group>"; };
+		B200000000000000000000B1 /* DataFetchers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetchers.swift; sourceTree = "<group>"; };
+		B200000000000000000000C1 /* WindowAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAssembler.swift; sourceTree = "<group>"; };
+		B200000000000000000000D1 /* RealFeaturePipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealFeaturePipeline.swift; sourceTree = "<group>"; };
+		B200000000000000000000E1 /* station_registry.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = station_registry.json; path = ../data/station_registry.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +157,11 @@
 				B100000000000000000000B1 /* ModelBundle.swift */,
 				B100000000000000000000C1 /* ModelManager.swift */,
 				B100000000000000000000D1 /* FeaturePipeline.swift */,
+				B200000000000000000000A1 /* StationRegistry.swift */,
+				B200000000000000000000B1 /* DataFetchers.swift */,
+				B200000000000000000000C1 /* WindowAssembler.swift */,
+				B200000000000000000000D1 /* RealFeaturePipeline.swift */,
+				B200000000000000000000E1 /* station_registry.json */,
 			);
 			path = OpenFlowiOS;
 			sourceTree = "<group>";
@@ -242,6 +257,7 @@
 			files = (
 				99CFC17B29D52DDD0069F04E /* Preview Assets.xcassets in Resources */,
 				99CFC17729D52DDD0069F04E /* Assets.xcassets in Resources */,
+				B200000000000000000000E2 /* station_registry.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +292,10 @@
 				B100000000000000000000B2 /* ModelBundle.swift in Sources */,
 				B100000000000000000000C2 /* ModelManager.swift in Sources */,
 				B100000000000000000000D2 /* FeaturePipeline.swift in Sources */,
+				B200000000000000000000A2 /* StationRegistry.swift in Sources */,
+				B200000000000000000000B2 /* DataFetchers.swift in Sources */,
+				B200000000000000000000C2 /* WindowAssembler.swift in Sources */,
+				B200000000000000000000D2 /* RealFeaturePipeline.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
