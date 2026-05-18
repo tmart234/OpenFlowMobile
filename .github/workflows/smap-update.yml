@@ -1,0 +1,79 @@
+name: Update SMAP soil-moisture data
+
+# Fetches daily NASA SMAP soil-moisture series per HUC8 in the station
+# registry and force-pushes the JSON to the orphan `smap-data` branch.
+# Apps consume:
+#   https://raw.githubusercontent.com/${{ github.repository }}/smap-data/{huc8}.json
+#
+# Requires repository secrets:
+#   EARTHDATA_USERNAME
+#   EARTHDATA_PASSWORD
+on:
+  workflow_dispatch:
+  schedule:
+    # 08:00 UTC daily (after NASA's typical SMAP L3 publication window).
+    - cron: '0 8 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: smap-update
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check out upstream OpenFlow
+        uses: actions/checkout@v4
+        with:
+          repository: tmart234/OpenFlow
+          ref: dev
+          path: upstream-openflow
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: |
+            scripts/requirements.txt
+            upstream-openflow/requirements.txt
+
+      - name: Install deps
+        run: |
+          pip install -r scripts/requirements.txt
+          if [ -f upstream-openflow/requirements.txt ]; then
+            pip install -r upstream-openflow/requirements.txt
+          else
+            pip install earthaccess h5py shapely
+          fi
+
+      - name: Fetch SMAP
+        env:
+          EARTHDATA_USERNAME: ${{ secrets.EARTHDATA_USERNAME }}
+          EARTHDATA_PASSWORD: ${{ secrets.EARTHDATA_PASSWORD }}
+        run: python scripts/fetch_smap.py
+
+      - name: Publish to smap-data branch
+        run: |
+          set -euo pipefail
+          test -d .script-output/smap
+          test -n "$(ls .script-output/smap/*.json 2>/dev/null)" || { echo "no SMAP JSON produced"; exit 1; }
+
+          mkdir -p /tmp/smap-publish
+          cp .script-output/smap/*.json /tmp/smap-publish/
+
+          # Re-init a fresh orphan branch each run; we only ever serve the
+          # latest snapshot, so history would be wasteful.
+          cd /tmp/smap-publish
+          git init -q -b smap-data
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git config user.name 'github-actions[bot]'
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          git add .
+          git commit -q -m "SMAP $(date -u +%Y-%m-%d)"
+          git push -fq origin smap-data
