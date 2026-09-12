@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "huc8": "14010001",
+  "lat": 39.6446111,
+  "lon": -107.0780139,
+  "start_date": "2026-06-11",
+  "end_date": "2026-09-09",
+  "generated_utc": "2026-09-12T11:45:17Z",
+  "observed_days": 0,
+  "total_days": 91,
+  "series": [
+    {
+      "date": "2026-06-11",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-12",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-13",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-14",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-15",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-16",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-17",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-18",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-19",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-20",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-21",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-22",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-23",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-24",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-25",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-26",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-27",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-28",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-29",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-06-30",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-01",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-02",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-03",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-04",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-05",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-06",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-07",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-08",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-09",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-10",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-11",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-12",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-13",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-14",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-15",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-16",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-17",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-18",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-19",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-20",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-21",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-22",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-23",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-24",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-25",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-26",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-27",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-28",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-29",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-30",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-07-31",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-01",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-02",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-03",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-04",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-05",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-06",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-07",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-08",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-09",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-10",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-11",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-12",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-13",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-14",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-15",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-16",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-17",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-18",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-19",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-20",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-21",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-22",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-23",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-24",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-25",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-26",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-27",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-28",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-29",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-30",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-08-31",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-09-01",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-09-02",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-09-03",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-09-04",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-09-05",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-09-06",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-09-07",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-09-08",
+      "soil_moisture": null,
+      "observed": false
+    },
+    {
+      "date": "2026-09-09",
+      "soil_moisture": null,
+      "observed": false
+    }
+  ]
+}

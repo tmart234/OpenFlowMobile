@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-09-12T11:45:17Z",
+  "start_date": "2026-06-11",
+  "end_date": "2026-09-09",
+  "basins": [
+    {
+      "huc8": "11020002",
+      "observed_days": 0,
+      "total_days": 91
+    },
+    {
+      "huc8": "14010001",
+      "observed_days": 0,
+      "total_days": 91
+    },
+    {
+      "huc8": "14010005",
+      "observed_days": 0,
+      "total_days": 91
+    },
+    {
+      "huc8": "14020002",
+      "observed_days": 0,
+      "total_days": 91
+    }
+  ]
+}
